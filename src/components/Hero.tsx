@@ -4,20 +4,22 @@ import { theme } from '../theme';
 export const Hero: React.FC = () => {
   return (
     <section
-      id="about"
+      id="hero"
       className="hero-section"
       style={{
         scrollMarginTop: '100px',
         width: '100%',
-        minHeight: '100vh',
+        minWidth: 0,
+        minHeight: 'calc(100vh - 24px)',
+        margin: 0,
         display: 'flex',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-        padding: 'clamp(120px, 16vh, 140px) clamp(1rem, 3vw, 2rem) clamp(1rem, 2vw, 1.5rem) clamp(1rem, 3vw, 2rem)',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 'clamp(110px, 12vh, 130px) 0 clamp(1rem, 3vw, 1.5rem) 0',
         background: theme.colors.background,
-        color: theme.colors.white,
+        color: theme.colors.text,
         boxSizing: 'border-box',
-        overflow: 'hidden',
+        overflow: 'visible',
         flexDirection: 'column',
       }}
     >
@@ -39,231 +41,105 @@ export const Hero: React.FC = () => {
       
       {/* Main Content Container */}
       <div style={{ width: '100%', maxWidth: 1400, margin: '0 auto', padding: '0 clamp(1rem, 3vw, 2rem)', boxSizing: 'border-box' }}>
-        <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(240px, 360px)', gap: 'clamp(0.5rem, 1vw, 0.75rem)', alignItems: 'center', zIndex: 2, width: '100%', margin: 0 }}>
-        {/* Left: Headline and Description */}
-        <div style={{ maxWidth: 'clamp(280px, 90vw, 600px)', zIndex: 2, flex: '1 1 100%', minWidth: 0 }}>
-          <div style={{ marginBottom: 'clamp(12px, 2vw, 16px)' }}>
-            <span
-              style={{
-                background: theme.colors.mediumGray,
-                color: theme.colors.softGray,
-                fontSize: 'clamp(11px, 2vw, 13px)',
-                borderRadius: 16,
-                padding: '4px 16px',
-                letterSpacing: 1,
-                fontWeight: 500,
-              }}
-            >
-              Available for new projects
+<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 'clamp(1rem, 2vw, 1.4rem)', zIndex: 2, width: '100%', margin: 0 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '6px 14px', borderRadius: 9999, background: 'rgba(41,112,255,0.12)', border: `1px solid rgba(41,112,255,0.24)` }}>
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: theme.colors.green, display: 'inline-block' }} />
+            <span style={{ color: theme.colors.lightGray, textTransform: 'uppercase', letterSpacing: '0.28em', fontWeight: 700, fontSize: '0.7rem' }}>
+              Available for new opportunities
             </span>
           </div>
-          <h1 style={{ fontSize: 'clamp(2rem, 7vw, 3.2rem)', fontWeight: 700, margin: 0, lineHeight: 1.1, marginBottom: 'clamp(12px, 2vw, 24px)' }}>
-            Fullstack <span style={{ color: theme.colors.accent }}>Developer</span> <br/>
-            <span style={{ fontStyle: 'italic', fontSize: 'clamp(1.4rem, 5vw, 2.5rem)' }}> Building Scalable Web Applications</span>
-          </h1>
-          
-          <p style={{ fontSize: 'clamp(1rem, 3vw, 1.25rem)', margin: 'clamp(16px, 3vw, 24px) 0 clamp(20px, 3vw, 32px) 0', color: theme.colors.softGray }}>
-            Hey, I'm Maruff <span role="img" aria-label="waving hand">👋</span>. I bridge the gap between complex backend logic and pixel-perfect interfaces, building scalable applications that users actually love.
-          </p>
-          
-          <div style={{ display: 'flex', gap: 'clamp(12px, 2vw, 16px)', flexWrap: 'wrap' }}>
-            <a
-              href="/maruff_CV.pdf"
-              download="maruff_CV.pdf"
-              style={{
-                background: theme.colors.accent,
-                color: theme.colors.white,
-                padding: 'clamp(8px, 2vw, 10px) clamp(16px, 3vw, 20px)',
-                borderRadius: 8,
-                fontWeight: 600,
-                textDecoration: 'none',
-                fontSize: 'clamp(0.9rem, 2vw, 1rem)',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-                transition: 'all 0.2s',
-                minWidth: 'clamp(130px, auto, none)',
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 4px 12px rgba(41, 112, 255, 0.3)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
-              }}
-            >
-              Download CV
-            </a>
+
+          <div style={{ maxWidth: 820 }}>
+            <h4 style={{ margin: 0, fontSize: 'clamp(2.4rem, 4vw, 3.6rem)', fontWeight: 900, lineHeight: 1.02 }}>
+              Fullstack Developer
+              <br />
+              Building Scalable Web, Mobile & Software Solutions
+            </h4>
+            <p style={{ margin: '18px auto 0', maxWidth: 640, color: theme.colors.softGray, fontSize: 'clamp(1.05rem, 2vw, 1.1rem)', lineHeight: 1.65 }}>
+              I design and build scalable software solutions that transform ideas into powerful digital products. I bridge the gap between complex backend systems and intuitive, user-focused interfaces, delivering web and mobile applications that are secure, efficient, and built for growth. My focus is not just writing code, but creating reliable solutions that solve real business problems, improve user experiences, and help brands turn their vision into reality.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <a
               href="https://wa.me/2348138091650"
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background: 'transparent',
-                color: theme.colors.accent,
-                padding: 'clamp(8px, 2vw, 10px) clamp(16px, 3vw, 20px)',
-                borderRadius: 8,
-                fontWeight: 600,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                padding: '12px 24px',
+                borderRadius: 12,
+                background: theme.colors.accent,
+                color: theme.colors.white,
                 textDecoration: 'none',
-                fontSize: 'clamp(0.9rem, 2vw, 1rem)',
-                border: `2px solid ${theme.colors.accent}`,
-                transition: 'all 0.2s',
-                minWidth: 'clamp(130px, auto, none)',
+                fontWeight: 700,
+                fontSize: 'clamp(0.9rem, 2vw, 0.95rem)',
+                transition: 'transform 0.2s, box-shadow 0.2s',
               }}
               onMouseOver={(e) => {
-                e.currentTarget.style.background = 'rgba(41, 112, 255, 0.1)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 16px 40px rgba(41,112,255,0.18)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              Get in Touch →
+            </a>
+            <a
+              href="/maruff_CV.pdf"
+              download="maruff_CV.pdf"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                padding: '12px 24px',
+                borderRadius: 12,
+                border: `1px solid ${theme.colors.accent}`,
+                background: 'transparent',
+                color: theme.colors.text,
+                textDecoration: 'none',
+                fontWeight: 700,
+                fontSize: 'clamp(0.9rem, 2vw, 0.95rem)',
+                transition: 'background 0.2s, transform 0.2s',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.background = 'rgba(41,112,255,0.08)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
               }}
               onMouseOut={(e) => {
                 e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              Get in Touch
+              Download CV
             </a>
           </div>
-          
-          <div style={{ display: 'flex', gap: 'clamp(20px, 5vw, 32px)', marginTop: 'clamp(24px, 4vw, 32px)', flexWrap: 'wrap', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: 'clamp(20px, 3vw, 32px)' }}>
-            <div>
-              <p style={{ fontSize: 'clamp(1.8rem, 4vw, 2rem)', fontWeight: 700, margin: 0 }}>50+</p>
-              <p style={{ color: theme.colors.softGray, margin: 0, fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>Projects Done</p>
-            </div>
-            <div>
-              <p style={{ fontSize: 'clamp(1.8rem, 4vw, 2rem)', fontWeight: 700, margin: 0 }}>5+</p>
-              <p style={{ color: theme.colors.softGray, margin: 0, fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>Years Experience</p>
-            </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', width: '100%', maxWidth: 1020, marginTop: '0.9rem' }}>
+            {[
+              { value: '5+', label: 'Years Experience', detail: 'Industry-standard best practices' },
+              { value: '', label: 'Software Solutions Development', detail: 'Scalable web, mobile, and business application delivery.' },
+              { value: '', label: 'End-to-End Delivery', detail: 'Architecture, APIs, UI, and deployment' },
+            ].map((item) => (
+              <div key={item.label} style={{ padding: '0.55rem', borderRadius: 18, background: theme.colors.mediumGray, border: `1px solid ${theme.colors.border}`, boxShadow: '0 10px 20px rgba(0,0,0,0.12)' }}>
+                <p style={{ margin: 0, fontSize: 'clamp(1.1rem, 3vw, 1.45rem)', fontWeight: 800, color: theme.colors.text }}>
+                  {item.value}
+                </p>
+                <p style={{ margin: '0.35rem 0 0', color: theme.colors.text, fontWeight: 700, letterSpacing: '0.08em', fontSize: '0.78rem', textTransform: 'uppercase' }}>
+                  {item.label}
+                </p>
+                <p style={{ margin: '0.5rem 0 0', color: theme.colors.lightGray, fontSize: '0.85rem', lineHeight: 1.4 }}>
+                  {item.detail}
+                </p>
+              </div>
+            ))}
           </div>
-        </div>
-        
-        {/* Right: Hero Visual - Hidden on Mobile */}
-        <div className="hero-visual" style={{ position: 'relative', width: 'clamp(260px, 70vw, 360px)', height: 'clamp(260px, 70vw, 360px)', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1 1 auto', minWidth: '220px' }}>
-          {/* Rotating Dashed Ring */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              border: '1px dashed rgba(255,255,255,0.2)',
-              borderRadius: '50%',
-              animation: 'rotateSkills 20s linear infinite',
-              zIndex: 1,
-            }}
-          />
-          {/* Top-right Square Accent */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '-40px',
-              right: '-40px',
-              width: '96px',
-              height: '96px',
-              border: '2px solid rgba(59,130,246,0.3)',
-              borderRadius: 12,
-              transform: 'rotate(12deg)',
-              zIndex: 0,
-            }}
-          />
-          {/* Bottom-left Circle Accent */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '-40px',
-              left: '-40px',
-              width: '128px',
-              height: '128px',
-              border: '2px solid rgba(167,139,250,0.2)',
-              borderRadius: '50%',
-              zIndex: 0,
-            }}
-          />
-          {/* Floating Image */}
-          <div
-            style={{
-              position: 'relative',
-              width: '85%',
-              height: '85%',
-              animation: 'float 6s ease-in-out infinite',
-              zIndex: 2,
-              boxShadow: '0 0 50px -10px rgba(59,130,246,0.3)',
-              borderRadius: '50%',
-              overflow: 'hidden',
-              border: '4px solid rgba(255,255,255,0.05)',
-              background: '#171717',
-            }}
-          >
-            <img
-              alt="Maruff - Fullstack Developer"
-              src="/pro.png"
-              style={{
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                objectFit: 'cover',
-                filter: 'grayscale(1)',
-                transition: 'filter 0.7s, transform 0.7s',
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.filter = 'grayscale(0)';
-                e.currentTarget.style.transform = 'scale(1.05)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.filter = 'grayscale(1)';
-                e.currentTarget.style.transform = 'scale(1)';
-              }}
-            />
-          </div>
-          {/* Tech Floating Tags */}
-          <div
-            style={{
-              position: 'absolute',
-              right: '-16px',
-              top: '25%',
-              background: '#171717cc',
-              border: '1px solid rgba(255,255,255,0.1)',
-              padding: '8px 18px',
-              borderRadius: 16,
-              backdropFilter: 'blur(8px)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
-              zIndex: 3,
-              fontSize: 'clamp(11px, 2vw, 14px)',
-              fontWeight: 700,
-            }}
-          >
-            <span style={{ color: '#3b82f6' }}>React.js</span>
-          </div>
-          <div
-            style={{
-              position: 'absolute',
-              left: '-16px',
-              bottom: '25%',
-              background: '#171717cc',
-              border: '1px solid rgba(255,255,255,0.1)',
-              padding: '8px 18px',
-              borderRadius: 16,
-              backdropFilter: 'blur(8px)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
-              zIndex: 3,
-              fontSize: 'clamp(11px, 2vw, 14px)',
-              fontWeight: 700,
-            }}
-          >
-            <span style={{ color: '#7B61FF' }}>Node.js</span>
-          </div>
-          <div
-            style={{
-              position: 'absolute',
-              right: '40px',
-              bottom: '-16px',
-              background: '#171717cc',
-              border: '1px solid rgba(255,255,255,0.1)',
-              padding: '8px 18px',
-              borderRadius: 16,
-              backdropFilter: 'blur(8px)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
-              zIndex: 3,
-              fontSize: 'clamp(11px, 2vw, 14px)',
-              fontWeight: 700,
-            }}
-          >
-            <span style={{ color: '#1ED760' }}>Cloud</span>
-          </div>
-        </div>
         </div>
       </div>
     </section>

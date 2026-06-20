@@ -6,8 +6,103 @@
   align-items: center;
   justify-content: center;
   padding: 80px 0 0 0;
-  overflow: hidden;
+  overflow: visible;
   background: #111214;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 4vw, 3rem);
+  align-items: center;
+}
+.about-image-card {
+  height: auto;
+}
+@media (max-width: 1024px) {
+  .about-grid {
+    display: block !important;
+    grid-template-columns: 1fr !important;
+    justify-items: stretch;
+  }
+  .about-grid > div {
+    width: 100% !important;
+    max-width: none !important;
+    display: block !important;
+  }
+  .about-image-card {
+    display: none !important;
+    height: auto;
+  }
+}
+/* Skill metrics responsive layout: 4 columns desktop, 2 columns on small screens */
+.skill-metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+}
+@media (max-width: 860px) {
+  .skill-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 3vw, 1.25rem);
+  }
+}
+
+/* Further reduce metric font sizes on small screens */
+@media (max-width: 640px) {
+  .skill-metrics > div > div:first-child {
+    font-size: 1.25rem !important;
+  }
+
+  .skill-metrics > div > div:last-child {
+    font-size: 0.85rem !important;
+  }
+
+  .skill-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+/* Contact responsive rows */
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+.contact-label {
+  font-weight: 700;
+  color: var(--color-text);
+  min-width: 140px;
+  flex: 0 0 140px;
+}
+.contact-value {
+  flex: 1 1 auto;
+  text-align: right;
+  word-break: break-all;
+}
+@media (max-width: 640px) {
+  .contact-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .contact-label {
+    min-width: 0;
+    flex: none;
+    margin-bottom: 6px;
+  }
+  .contact-value {
+    text-align: left;
+  }
+  
+  /* Reduce font sizes for contact items on small screens */
+  .contact-label {
+    font-size: 0.9rem;
+  }
+
+  .contact-value {
+    font-size: 0.9rem;
+  }
 }
 .hero-bg-grid {
   position: absolute;
@@ -489,6 +584,40 @@ body {
   }
 }
 
+  /* Contact card: remove visual card on small screens and show two columns */
+  @media (max-width: 640px) {
+    .contact-card {
+      background: transparent !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+      padding: 0 !important;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+
+    .contact-label {
+      min-width: 0;
+      flex: none;
+      margin-bottom: 2px;
+    }
+
+    .contact-value {
+      text-align: left;
+    }
+  }
+
 /* Medium devices: 769px - 1024px */
 @media (max-width: 1024px) {
   .hero-title {
@@ -556,6 +685,55 @@ body {
     min-width: 44px;
   }
 
+
+/* Footer responsive tweaks */
+.site-footer {
+  box-sizing: border-box;
+}
+
+@media (max-width: 860px) {
+  .site-footer {
+    padding: clamp(1rem, 4vw, 1.5rem) clamp(0.75rem, 3vw, 1rem) !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .footer-grid > div {
+    align-items: flex-start !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .footer-copy {
+    text-align: left !important;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 1rem !important;
+  }
+
+  .footer-grid {
+    gap: 0.75rem !important;
+  }
+
+  .site-footer .fa-solid,
+  .site-footer .fa-brands {
+    font-size: 1rem !important;
+  }
+}
   .hero-btn-primary:active {
     transform: scale(0.98);
   }

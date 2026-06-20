@@ -59,10 +59,8 @@ const projects = [
       "Material UI components",
       "React Quill rich text editor",
       "Component state/hooks",
-      "BlogManagement page",
-      "BlogEditor page",
-      "BlogList component",
-      "BlogPostCard component",
+        "BlogManagement page",
+        "BlogPostCard component",
       "BlogPostDetail component",
     ],
     image: "blog.png",
@@ -97,12 +95,12 @@ const FeaturedProjects = () => {
       className="featured-projects-section"
       style={{
         background: theme.colors.background,
-        color: theme.colors.white,
+        color: theme.colors.text,
         borderRadius: 0,
         width: "100vw",
         minWidth: 0,
         margin: 0,
-        padding: "3rem 0",
+        padding: "clamp(2rem, 5vw, 3rem) 0",
         boxSizing: "border-box",
         position: "relative",
         left: "50%",
@@ -111,7 +109,7 @@ const FeaturedProjects = () => {
       }}
     >
       <div style={{ textAlign: "center", marginBottom: "clamp(1.5rem, 4vw, 2.5rem)", paddingLeft: 'clamp(1rem, 3vw, 2rem)', paddingRight: 'clamp(1rem, 3vw, 2rem)' }}>
-        <h2 style={{ fontSize: "clamp(1.8rem, 6vw, 2.8rem)", fontWeight: 700, marginBottom: 8, color: theme.colors.white }}>
+        <h2 style={{ fontSize: "clamp(1.8rem, 6vw, 2.8rem)", fontWeight: 700, marginBottom: 8, color: theme.colors.text }}>
           Featured <span style={{ color: theme.colors.accent, textShadow: `0 0 16px ${theme.colors.accent}` }}>Projects</span>
         </h2>
         <p style={{ color: theme.colors.lightGray, fontSize: "clamp(1rem, 2.5vw, 1.2rem)", maxWidth: 700, margin: "0 auto" }}>
@@ -193,7 +191,7 @@ const FeaturedProjects = () => {
               <h3
                 className="featured-card-title"
                 style={{
-                  color: theme.colors.white,
+                    color: theme.colors.text,
                   fontSize: "clamp(1rem, 2vw, 1.1rem)",
                   fontWeight: 600,
                   margin: "0.4rem 0",
@@ -204,7 +202,7 @@ const FeaturedProjects = () => {
               <p
                 className="featured-card-desc"
                 style={{
-                  color: theme.colors.lightGray,
+                    color: theme.colors.text,
                   fontSize: "clamp(0.85rem, 1.8vw, 0.95rem)",
                   marginBottom: "0.7rem",
                   lineHeight: 1.4,
@@ -218,7 +216,7 @@ const FeaturedProjects = () => {
                   style={{
                     fontSize: "clamp(0.8rem, 1.5vw, 0.9rem)",
                     fontWeight: 500,
-                    color: theme.colors.white,
+                    color: theme.colors.text,
                   }}
                 >
                   Technologies
@@ -293,7 +291,7 @@ const FeaturedProjects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    flex: 1,
+                        flex: 1,
                     textAlign: "center",
                     padding: "clamp(0.35rem, 1.5vw, 0.5rem) clamp(0.5rem, 1vw, 1rem)",
                     borderRadius: 8,
@@ -327,8 +325,8 @@ const FeaturedProjects = () => {
                       borderRadius: 8,
                       fontSize: "clamp(0.85rem, 1.5vw, 0.95rem)",
                       fontWeight: 600,
-                      background: theme.colors.background,
-                      color: theme.colors.white,
+                        background: theme.colors.background,
+                        color: theme.colors.text,
                       border: "none",
                       transition: "background 0.2s, transform 0.2s",
                       cursor: "pointer",
@@ -364,8 +362,8 @@ const FeaturedProjects = () => {
                       fontSize: "clamp(0.85rem, 1.5vw, 0.95rem)",
                       fontWeight: 600,
                       textDecoration: "none",
-                      background: theme.colors.background,
-                      color: theme.colors.white,
+                        background: theme.colors.background,
+                        color: theme.colors.text,
                       border: "none",
                       transition: "background 0.2s, transform 0.2s",
                     }}

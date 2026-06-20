@@ -1,17 +1,29 @@
-import React, { useState } from 'react';
-import { theme } from '../theme';
+import React, { useState, useEffect } from 'react';
+import { theme, applyTheme } from '../theme';
 
 const navLinks = [
   { label: 'About', href: '#about', targetId: 'about' },
   { label: 'Projects', href: '#projects', targetId: 'projects' },
   { label: 'Skills', href: '#skills', targetId: 'skills' },
-  { label: 'Experience', href: '#experience', targetId: 'experience' },
+  { label: 'Education', href: '#education', targetId: 'education' },
   { label: 'Blog', href: '#blog', targetId: 'blog' },
 ];
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('About');
+  const [mode, setMode] = useState<'dark' | 'light'>(() => {
+    try {
+      const saved = typeof localStorage !== 'undefined' ? localStorage.getItem('site-theme') : null;
+      return saved === 'dark' ? 'dark' : 'light';
+    } catch (e) {
+      return 'light';
+    }
+  });
+
+  useEffect(() => {
+    applyTheme(mode);
+  }, [mode]);
 
   const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, targetId: string, label: string) => {
     event.preventDefault();
@@ -47,30 +59,16 @@ export const Navbar: React.FC = () => {
     <div style={{ width: '100%', maxWidth: 1400, margin: '0 auto', padding: '0 clamp(1rem, 3vw, 2rem)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
       {/* Left: Logo and Title */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(4px, 1vw, 8px)', flex: '0 0 auto' }}>
-        <div
-          style={{
-            width: 'clamp(32px, 5vw, 40px)',
-            height: 'clamp(32px, 5vw, 40px)',
-            background: theme.colors.accent,
-            borderRadius: 12,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginRight: 'clamp(4px, 2vw, 12px)',
-          }}
-        >
-          <span style={{ color: theme.colors.white, fontSize: 'clamp(16px, 3vw, 24px)' }}>🧭</span>
-        </div>
         <div>
-          <span style={{ color: theme.colors.white, fontWeight: 700, fontSize: 'clamp(14px, 3vw, 20px)' }}>
+          <span style={{ color: theme.colors.text, fontFamily: 'Space Grotesk', fontWeight: 800, fontSize: '23px', lineHeight: '23px' }}>
             MARS
           </span>
-          <span style={{ color: theme.colors.accent, fontWeight: 700, fontSize: 'clamp(14px, 3vw, 20px)' }}>
+          <span style={{ color: theme.colors.accent, fontFamily: 'Space Grotesk', fontWeight: 800, fontSize: '23px', lineHeight: '23px' }}>
             BOLD
           </span>
-          <div className="nav-subtitle" style={{ color: theme.colors.softGray, fontSize: 'clamp(8px, 1vw, 10px)', letterSpacing: 1 }}>
+          {/* <div className="nav-subtitle" style={{ color: theme.colors.softGray, fontSize: 'clamp(8px, 1vw, 10px)', letterSpacing: 1 }}>
             SOFTWARE ENGINEERING SERIES
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -88,7 +86,7 @@ export const Navbar: React.FC = () => {
           justifyContent: 'center',
           cursor: 'pointer',
           fontSize: 24,
-          color: theme.colors.white,
+          color: theme.colors.text,
         }}
         aria-label="Toggle mobile menu"
       >
@@ -109,7 +107,7 @@ export const Navbar: React.FC = () => {
               key={link.label}
               href={link.href}
               style={{
-                color: isActive ? theme.colors.white : theme.colors.white,
+                color: isActive ? theme.colors.white : theme.colors.text,
                 background: isActive ? theme.colors.accent : 'transparent',
                 textDecoration: 'none',
                 fontWeight: isActive ? 700 : 500,
@@ -120,12 +118,12 @@ export const Navbar: React.FC = () => {
                 borderRadius: isActive ? 8 : 0,
                 boxShadow: isActive ? '0 2px 8px rgba(41,112,255,0.10)' : 'none',
               }}
-              onClick={(e) => { handleNavClick(e, link.targetId, link.label); e.currentTarget.style.color = theme.colors.white; }}
+              onClick={(e) => { handleNavClick(e, link.targetId, link.label); e.currentTarget.style.color = isActive ? theme.colors.white : theme.colors.text; }}
               onMouseOver={(e) => {
                 if (!isActive) e.currentTarget.style.color = theme.colors.accent;
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.color = theme.colors.white;
+                e.currentTarget.style.color = isActive ? theme.colors.white : theme.colors.text;
               }}
             >
               {link.label}
@@ -135,7 +133,7 @@ export const Navbar: React.FC = () => {
         <a
           href="#contact"
           style={{
-            color: theme.colors.white,
+            color: isContactActive ? theme.colors.white : theme.colors.text,
             background: isContactActive ? theme.colors.accent : 'transparent',
             textDecoration: 'none',
             fontWeight: isContactActive ? 700 : 500,
@@ -153,13 +151,12 @@ export const Navbar: React.FC = () => {
             if (target) {
               target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-            e.currentTarget.style.color = theme.colors.white;
           }}
           onMouseOver={(e) => {
             if (!isContactActive) e.currentTarget.style.color = theme.colors.accent;
           }}
           onMouseOut={(e) => {
-            e.currentTarget.style.color = theme.colors.white;
+            e.currentTarget.style.color = isContactActive ? theme.colors.white : theme.colors.text;
           }}
         >
           Contact
@@ -167,14 +164,15 @@ export const Navbar: React.FC = () => {
         {/* make Contact match active tab styling */}
       </div>
 
-      {/* Right: Theme Toggle and Avatar - Desktop Only */}
+      {/* Right: Theme Toggle - Desktop Only */}
       <div className="navbar-right" style={{ 
         alignItems: 'center', 
         gap: 'clamp(4px, 1vw, 8px)', 
         flex: '0 0 auto'
       }}>
         <button
-          aria-label="Toggle theme"
+          aria-label={mode === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+          onClick={() => setMode((m) => (m === 'dark' ? 'light' : 'dark'))}
           style={{
             background: theme.colors.mediumGray,
             border: 'none',
@@ -184,26 +182,11 @@ export const Navbar: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            marginRight: 8,
             cursor: 'pointer',
           }}
         >
-          <span style={{ color: theme.colors.white, fontSize: 20 }}>☀️</span>
+          <span style={{ color: theme.colors.text, fontSize: 20 }}>{mode === 'light' ? '☀️' : '🌙'}</span>
         </button>
-        <div
-          style={{
-            width: 40,
-            height: 40,
-            borderRadius: '50%',
-            background: 'linear-gradient(135deg, #FFD600 0%, #FFB86C 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            border: `2px solid ${theme.colors.background}`,
-          }}
-        >
-          <span style={{ fontSize: 22 }}>👤</span>
-        </div>
       </div>
 
       {/* Mobile Menu - Full Width Dropdown */}
@@ -222,7 +205,7 @@ export const Navbar: React.FC = () => {
               key={link.label}
               href={link.href}
               style={{
-                color: theme.colors.white,
+                color: theme.colors.text,
                 textDecoration: 'none',
                 fontWeight: 500,
                 fontSize: 'clamp(14px, 2vw, 16px)',
@@ -238,7 +221,7 @@ export const Navbar: React.FC = () => {
             href="#contact"
             style={{
               background: theme.colors.accent,
-              color: theme.colors.white,
+                color: theme.colors.text,
               fontWeight: 600,
               fontSize: 'clamp(14px, 2vw, 16px)',
               borderRadius: 8,

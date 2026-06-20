@@ -1,3 +1,4 @@
+import React from 'react';
 const links = [
   { label: "Privacy Policy", url: "#" },
   { label: "Terms of Service", url: "#" },
@@ -12,50 +13,28 @@ const exploreLinks = [
 ];
 
 const connectLinks = [
-  { icon: "fa-brands fa-github", label: "GitHub", url: "https://github.com/yourusername" },
-  { icon: "fa-brands fa-linkedin", label: "LinkedIn", url: "https://linkedin.com/in/yourusername" },
-  { icon: "fa-brands fa-twitter", label: "Twitter / X", url: "https://twitter.com/yourusername" },
+  { icon: "fa-brands fa-github", label: "GitHub", url: "https://github.com/themarsfactor" },
+  { icon: "fa-brands fa-linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/maruff-shadu" },
+  { icon: "fa-brands fa-x-twitter", label: "X", url: "https://x.com/maruff_olayemi" },
 ];
 
-// Example theme object definition
-const theme = {
-  colors: {
-    background: "#181A1B",
-    lightGray: "#B0B3B8",
-    mediumGray: "#3A3B3C",
-    accent: "#2970FF",
-    white: "#FFFFFF",
-  },
-};
+import { theme } from '../theme';
 
 const Footer: React.FC = () => (
   <footer
+    className="site-footer"
     style={{
       background: theme.colors.background,
       color: theme.colors.lightGray,
-      width: "100vw",
+      width: "100%",
       minWidth: 0,
-      padding: "clamp(1rem, 2vw, 1.5rem) clamp(1rem, 3vw, 2vw) clamp(0.5rem, 1vw, 1rem) clamp(1rem, 3vw, 2vw)",
+      padding: "clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem)",
       boxSizing: "border-box",
       position: "relative",
-      left: "50%",
-      right: "50%",
-      transform: "translateX(-50%)",
       fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
     }}
   >
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(clamp(200px, 90vw, 250px), 1fr))",
-        gap: "clamp(1.5rem, 3vw, 2rem)",
-        width: "100%",
-        margin: "0 0 clamp(1.5rem, 2vw, 2rem) 0",
-        alignItems: "start",
-        maxWidth: "1400px",
-        margin: "0 auto 0 auto",
-      }}
-    >
+    <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "minmax(200px, 320px) 1fr 1fr 1fr", gap: "clamp(1.5rem, 3vw, 2rem)", width: "100%", alignItems: "start", maxWidth: "1400px", margin: "0 auto" }}>
       {/* Logo & Description */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
         <div style={{ display: "flex", alignItems: "center", marginBottom: 16 }}>
@@ -73,7 +52,7 @@ const Footer: React.FC = () => (
           >
             <i className="fa-solid fa-compass-drafting" style={{ color: theme.colors.white, fontSize: "clamp(1.2rem, 2vw, 1.5rem)" }} />
           </span>
-          <span style={{ color: theme.colors.white, fontWeight: 700, fontSize: "clamp(1.1rem, 2vw, 1.3rem)", letterSpacing: 1 }}>Marsbold</span>
+          <span style={{ color: theme.colors.text, fontWeight: 700, fontSize: "clamp(1.1rem, 2vw, 1.3rem)", letterSpacing: 1 }}>Marsbold</span>
         </div>
         <div style={{ color: theme.colors.lightGray, fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)", lineHeight: 1.5 }}>
           Building digital structures with precision and purpose. Focused on minimalist design systems and robust architectural patterns.
@@ -84,10 +63,9 @@ const Footer: React.FC = () => (
         <div style={{ color: theme.colors.accent, fontWeight: 700, marginBottom: 12, letterSpacing: 1, fontSize: "clamp(0.95rem, 1.5vw, 1rem)" }}>EXPLORE</div>
         {exploreLinks.map((link) => (
           <div key={link.label} style={{ marginBottom: 8 }}>
-            <a href={link.url} style={{ color: theme.colors.white, textDecoration: "none", fontWeight: 600, fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)", transition: 'color 0.2s' }}
-              onMouseOver={(e) => e.currentTarget.style.color = theme.colors.accent}
-              onMouseOut={(e) => e.currentTarget.style.color = theme.colors.white}
-            >{link.label}</a>
+            <span style={{ color: theme.colors.lightGray, textDecoration: "none", fontWeight: 600, fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)", cursor: "default", opacity: 0.75 }}>
+              {link.label}
+            </span>
           </div>
         ))}
       </div>
@@ -99,9 +77,9 @@ const Footer: React.FC = () => (
             <span style={{ border: `1px solid ${theme.colors.accent}`, borderRadius: 6, width: 'clamp(28px, 5vw, 32px)', height: 'clamp(28px, 5vw, 32px)', display: "flex", alignItems: "center", justifyContent: "center", marginRight: 10, transition: 'all 0.2s' }}>
               <i className={link.icon} style={{ color: theme.colors.accent, fontSize: "clamp(0.95rem, 1.5vw, 1.2rem)" }} />
             </span>
-            <a href={link.url} target="_blank" rel="noopener noreferrer" style={{ color: theme.colors.white, textDecoration: "none", fontWeight: 600, fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)", transition: 'color 0.2s' }}
+            <a href={link.url} target="_blank" rel="noopener noreferrer" style={{ color: theme.colors.text, textDecoration: "none", fontWeight: 600, fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)", transition: 'color 0.2s' }}
               onMouseOver={(e) => e.currentTarget.style.color = theme.colors.accent}
-              onMouseOut={(e) => e.currentTarget.style.color = theme.colors.white}
+              onMouseOut={(e) => e.currentTarget.style.color = theme.colors.text}
             >{link.label}</a>
           </div>
         ))}
@@ -142,8 +120,8 @@ const Footer: React.FC = () => (
       </div>
     </div>
     <hr style={{ border: "none", borderTop: `1px solid ${theme.colors.mediumGray}`, margin: "clamp(1.5rem, 2vw, 2rem) 0 clamp(0.8rem, 1.5vw, 1rem) 0" }} />
-    <div style={{ display: "flex", justifyContent: "space-between", flexWrap: 'wrap', maxWidth: 1400, margin: "0 auto", fontSize: "clamp(0.8rem, 1.2vw, 0.95rem)", color: theme.colors.lightGray, gap: '1rem' }}>
-      <div style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 1.5rem)', flexWrap: 'wrap' }}>
+    <div className="footer-bottom" style={{ display: "flex", justifyContent: "space-between", flexWrap: 'wrap', maxWidth: 1400, margin: "0 auto", fontSize: "clamp(0.8rem, 1.2vw, 0.95rem)", color: theme.colors.lightGray, gap: '1rem' }}>
+      <div className="footer-links" style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 1.5rem)', flexWrap: 'wrap' }}>
         {links.map((link) => (
           <a key={link.label} href={link.url} style={{ color: theme.colors.lightGray, textDecoration: "none", fontWeight: 600, letterSpacing: 0.5, transition: 'color 0.2s' }}
             onMouseOver={(e) => e.currentTarget.style.color = theme.colors.accent}
@@ -151,7 +129,7 @@ const Footer: React.FC = () => (
           >{link.label}</a>
         ))}
       </div>
-      <div style={{ textAlign: "right" }}>
+      <div className="footer-copy" style={{ textAlign: "right" }}>
         &copy; {new Date().getFullYear()} Marsbold. All rights reserved. Engineered for excellence.
       </div>
     </div>

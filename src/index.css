@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -45,6 +45,15 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Grotesk', sans-serif;
 }
 button:hover {
   border-color: #646cff;

@@ -60,7 +60,7 @@ const BlogCarousel: React.FC = () => {
       style={{
         scrollMarginTop: '100px',
         background: theme.colors.background,
-        color: theme.colors.white,
+        color: theme.colors.text,
         width: "100vw",
         minWidth: 0,
         margin: 0,
@@ -74,7 +74,7 @@ const BlogCarousel: React.FC = () => {
     >
       <div style={{ maxWidth: '90vw', margin: "0 auto", padding: "0 clamp(0.5rem, 2vw, 1rem)" }}>
         <div style={{ textAlign: "center", marginBottom: "clamp(1.5rem, 3vw, 2rem)" }}>
-          <h2 style={{ fontSize: "clamp(1.8rem, 6vw, 2.8rem)", fontWeight: 700, marginBottom: 8, color: theme.colors.white }}>
+          <h2 style={{ fontSize: "clamp(1.8rem, 6vw, 2.8rem)", fontWeight: 700, marginBottom: 8, color: theme.colors.text }}>
             Software Engineering <span style={{ color: theme.colors.accent, textShadow: `0 0 16px ${theme.colors.accent}` }}>Blog</span>
           </h2>
           <p style={{ color: theme.colors.lightGray, maxWidth: 600, margin: "0 auto clamp(1rem, 2vw, 2rem) auto", fontSize: "clamp(1rem, 2vw, 1.1rem)" }}>
@@ -156,7 +156,7 @@ const BlogCarousel: React.FC = () => {
                         <i className="fa-regular fa-calendar" style={{ marginRight: 6 }} />
                         {new Date(post.published_at).toLocaleDateString()}
                       </div>
-                      <h3 style={{ color: theme.colors.white, fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 700, marginBottom: 8 }}>{post.title}</h3>
+                      <h3 style={{ color: theme.colors.text, fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 700, marginBottom: 8 }}>{post.title}</h3>
                       <div style={{ color: theme.colors.lightGray, fontSize: "clamp(0.9rem, 1.5vw, 1rem)", marginBottom: 12, lineHeight: 1.4 }}>{post.description}</div>
                       <a
                         href={post.url}

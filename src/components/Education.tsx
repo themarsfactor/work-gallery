@@ -31,8 +31,8 @@ const certifications = [
  {
   icon: "fa-solid fa-code",
   title: "Advanced Diploma in Software Engineering",
-  id: "ZHL9R3MfNS",
-  url: "https://intranet.alxswe.com/certificates/ZHL9R3MfNS",
+  id: "Null",
+  // url: "https://intranet.alxswe.com/certificates/ZHL9R3MfNS",
   issued: "OCT 2020"
 },
   
@@ -46,15 +46,15 @@ const certifications = [
 
 const Education: React.FC = () => (
   <section
-    id="experience"
+    id="education"
     style={{
       scrollMarginTop: '100px',
       background: theme.colors.background,
-      color: theme.colors.white,
+      color: theme.colors.text,
       width: "100vw",
       minWidth: 0,
       margin: 0,
-      padding: "clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem)",
+      padding: "clamp(2.5rem, 5vw, 3.5rem) clamp(1rem, 3vw, 2rem)",
       boxSizing: "border-box",
       position: "relative",
       left: "50%",
@@ -69,7 +69,7 @@ const Education: React.FC = () => (
           <span style={{ background: theme.colors.accent, borderRadius: 8, width: 'clamp(36px, 5vw, 40px)', height: 'clamp(36px, 5vw, 40px)', display: "flex", alignItems: "center", justifyContent: "center" }}>
             <i className="fa-solid fa-compass-drafting" style={{ color: theme.colors.white, fontSize: "clamp(1.2rem, 2vw, 1.5rem)" }} />
           </span>
-          <span style={{ color: theme.colors.white, fontWeight: 700, fontSize: "clamp(1.5rem, 4vw, 2rem)", letterSpacing: 1 }}>FORMAL EDUCATION</span>
+          <span style={{ color: theme.colors.text, fontWeight: 700, fontSize: "clamp(1.5rem, 4vw, 2rem)", letterSpacing: 1 }}>FORMAL EDUCATION</span>
         </div>
         <div style={{ borderLeft: `3px solid ${theme.colors.accent}33`, paddingLeft: 'clamp(1.5rem, 2vw, 2rem)', position: "relative" }}>
           {education.map((item) => (
@@ -78,7 +78,7 @@ const Education: React.FC = () => (
               <div style={{ color: theme.colors.accent, fontWeight: 700, fontSize: "clamp(0.85rem, 1.5vw, 1rem)", marginBottom: 2, letterSpacing: 1 }}>
                 {item.period} &nbsp; / &nbsp; {item.status.toUpperCase()}
               </div>
-              <div style={{ fontWeight: 700, fontSize: "clamp(1.1rem, 2.5vw, 1.35rem)", color: theme.colors.white, marginBottom: 2 }}>{item.degree}</div>
+              <div style={{ fontWeight: 700, fontSize: "clamp(1.1rem, 2.5vw, 1.35rem)", color: theme.colors.text, marginBottom: 2 }}>{item.degree}</div>
               <div style={{ color: theme.colors.lightGray, fontSize: "clamp(1rem, 1.8vw, 1.1rem)", marginBottom: 8 }}>{item.institution}</div>
               {item.details && (
                 <div style={{ background: `${theme.colors.accent}10`, color: theme.colors.accent, fontStyle: "italic", borderRadius: 8, padding: "clamp(0.8rem, 2vw, 1.2rem)", margin: "12px 0 0 0", fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)" }}>{item.details}</div>
@@ -93,7 +93,7 @@ const Education: React.FC = () => (
           <span style={{ background: theme.colors.accent, borderRadius: 8, width: 'clamp(36px, 5vw, 40px)', height: 'clamp(36px, 5vw, 40px)', display: "flex", alignItems: "center", justifyContent: "center" }}>
             <i className="fa-solid fa-gear" style={{ color: theme.colors.white, fontSize: "clamp(1.2rem, 2vw, 1.5rem)" }} />
           </span>
-          <span style={{ color: theme.colors.white, fontWeight: 700, fontSize: "clamp(1.5rem, 4vw, 2rem)", letterSpacing: 1 }}>CERTIFICATIONS</span>
+          <span style={{ color: theme.colors.text, fontWeight: 700, fontSize: "clamp(1.5rem, 4vw, 2rem)", letterSpacing: 1 }}>CERTIFICATIONS</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "clamp(1rem, 2vw, 1.5rem)" }}>
           {certifications.map((cert) => (
@@ -111,7 +111,7 @@ const Education: React.FC = () => (
                 <i className={cert.icon} style={{ color: theme.colors.white, fontSize: "clamp(1.3rem, 2vw, 1.7rem)" }} />
               </span>
               <div style={{ minWidth: 0 }}>
-                <div style={{ color: theme.colors.white, fontWeight: 700, fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)", marginBottom: 2 }}>{cert.title}</div>
+                <div style={{ color: theme.colors.text, fontWeight: 700, fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)", marginBottom: 2 }}>{cert.title}</div>
                 <div style={{ color: theme.colors.accent, fontWeight: 600, fontSize: "clamp(0.85rem, 1.3vw, 0.98rem)", marginBottom: 2, wordBreak: 'break-all' }}>
                   ID: <a href={cert.url} style={{ color: theme.colors.accent, textDecoration: "underline" }}>{cert.id}</a>
                 </div>

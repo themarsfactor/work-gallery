@@ -27,7 +27,7 @@ const skills = [
       { name: "Laravel", icon: "fa-solid fa-laravel" },
       { name: "PHP", icon: "fa-solid fa-code" },
       { name: "Node.js", icon: "fa-brands fa-node-js" },
-      { name: "Express", icon: "fa-solid fa-server" },
+      { name: "Express.js", icon: "fa-solid fa-server" },
       { name: "MongoDB", icon: "fa-solid fa-database" },
       { name: "REST API", icon: "fa-solid fa-plug" },
       { name: "GraphQL", icon: "fa-solid fa-code-branch" },
@@ -59,7 +59,7 @@ const SkillSet: React.FC = () => {
       style={{
         scrollMarginTop: '100px',
         background: theme.colors.background,
-        color: theme.colors.white,
+        color: theme.colors.text,
         width: "100vw",
         margin: 0,
         padding: "clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem)",
@@ -71,7 +71,7 @@ const SkillSet: React.FC = () => {
       }}
     >
       <div style={{ textAlign: "center", marginBottom: "clamp(1.5rem, 4vw, 2.5rem)", paddingLeft: 'clamp(0.5rem, 2vw, 1rem)', paddingRight: 'clamp(0.5rem, 2vw, 1rem)' }}>
-        <h2 style={{ fontSize: "clamp(1.8rem, 6vw, 2.8rem)", fontWeight: 700, marginBottom: 8, color: theme.colors.white }}>
+        <h2 style={{ fontSize: "clamp(1.8rem, 6vw, 2.8rem)", fontWeight: 700, marginBottom: 8, color: theme.colors.text }}>
           Architectural <span style={{ color: theme.colors.accent, textShadow: `0 0 16px ${theme.colors.accent}` }}>Tech Stack</span>
         </h2>
         <p style={{ color: theme.colors.lightGray, fontSize: "clamp(1rem, 2.5vw, 1.2rem)", maxWidth: 700, margin: "0 auto" }}>
@@ -116,7 +116,7 @@ const SkillSet: React.FC = () => {
               <span style={{ background: theme.colors.accent, borderRadius: 8, width: 'clamp(32px, 5vw, 36px)', height: 'clamp(32px, 5vw, 36px)', display: "flex", alignItems: "center", justifyContent: "center", marginRight: 12 }}>
                 <i className={group.icon} style={{ color: theme.colors.white, fontSize: "clamp(1.1rem, 2vw, 1.3rem)" }} />
               </span>
-              <span style={{ color: theme.colors.white, fontWeight: 700, fontSize: "clamp(1rem, 2vw, 1.2rem)" }}>{group.category}</span>
+              <span style={{ color: theme.colors.text, fontWeight: 700, fontSize: "clamp(1rem, 2vw, 1.2rem)" }}>{group.category}</span>
             </div>
             <div style={{ color: theme.colors.accent, fontWeight: 600, fontSize: "clamp(0.9rem, 1.5vw, 1rem)", marginBottom: 18 }}>{group.subtitle}</div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "clamp(0.8rem, 1.5vw, 1rem)" }}>
@@ -125,7 +125,7 @@ const SkillSet: React.FC = () => {
                   key={skill.name}
                   style={{
                     background: theme.colors.background,
-                    color: theme.colors.white,
+                    color: theme.colors.text,
                     fontSize: "clamp(0.85rem, 1.5vw, 1rem)",
                     padding: "0.35rem 0.8rem",
                     borderRadius: 12,
@@ -143,7 +143,7 @@ const SkillSet: React.FC = () => {
                   }}
                   onMouseOut={(e) => {
                     e.currentTarget.style.background = theme.colors.background;
-                    e.currentTarget.style.color = theme.colors.white;
+                    e.currentTarget.style.color = theme.colors.text;
                   }}
                 >
                   {skill.icon && <i className={skill.icon} style={{ fontSize: "clamp(0.85rem, 1.5vw, 1rem)", color: 'inherit' }} />}
@@ -154,22 +154,22 @@ const SkillSet: React.FC = () => {
           </div>
         ))}
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(clamp(150px, 45vw, 250px), 1fr))", gap: "clamp(2rem, 4vw, 3rem)", marginTop: "clamp(1.5rem, 3vw, 2rem)", paddingLeft: "clamp(0.5rem, 2vw, 1rem)", paddingRight: "clamp(0.5rem, 2vw, 1rem)" }}>
+      <div className="skill-metrics" style={{ display: "grid", gap: "clamp(1.25rem, 3vw, 1.75rem)", maxWidth: 1120, margin: "clamp(1.5rem, 3vw, 2rem) auto 0 auto", paddingLeft: "clamp(0.5rem, 2vw, 1rem)", paddingRight: "clamp(0.5rem, 2vw, 1rem)" }}>
         <div style={{ textAlign: "center" }}>
           <div style={{ color: theme.colors.accent, fontWeight: 700, fontSize: "clamp(1.5rem, 4vw, 2rem)", marginBottom: 4 }}>99.9%</div>
-          <div style={{ color: theme.colors.white, fontWeight: 600, fontSize: "clamp(0.9rem, 2vw, 1.1rem)", marginBottom: 2 }}>UPTIME RELIABILITY</div>
+          <div style={{ color: theme.colors.text, fontWeight: 600, fontSize: "clamp(0.9rem, 2vw, 1.1rem)", marginBottom: 2 }}>UPTIME RELIABILITY</div>
         </div>
         <div style={{ textAlign: "center" }}>
           <div style={{ color: theme.colors.accent, fontWeight: 700, fontSize: "clamp(1.5rem, 4vw, 2rem)", marginBottom: 4 }}>&lt;200ms</div>
-          <div style={{ color: theme.colors.white, fontWeight: 600, fontSize: "clamp(0.9rem, 2vw, 1.1rem)", marginBottom: 2 }}>LATENCY RESPONSE</div>
+          <div style={{ color: theme.colors.text, fontWeight: 600, fontSize: "clamp(0.9rem, 2vw, 1.1rem)", marginBottom: 2 }}>LATENCY RESPONSE</div>
         </div>
         <div style={{ textAlign: "center" }}>
           <div style={{ color: theme.colors.accent, fontWeight: 700, fontSize: "clamp(1.5rem, 4vw, 2rem)", marginBottom: 4 }}>Scalable</div>
-          <div style={{ color: theme.colors.white, fontWeight: 600, fontSize: "clamp(0.9rem, 2vw, 1.1rem)", marginBottom: 2 }}>ARCHITECTURE</div>
+          <div style={{ color: theme.colors.text, fontWeight: 600, fontSize: "clamp(0.9rem, 2vw, 1.1rem)", marginBottom: 2 }}>ARCHITECTURE</div>
         </div>
         <div style={{ textAlign: "center" }}>
           <div style={{ color: theme.colors.accent, fontWeight: 700, fontSize: "clamp(1.5rem, 4vw, 2rem)", marginBottom: 4 }}>Secure</div>
-          <div style={{ color: theme.colors.white, fontWeight: 600, fontSize: "clamp(0.9rem, 2vw, 1.1rem)", marginBottom: 2 }}>BY DESIGN</div>
+          <div style={{ color: theme.colors.text, fontWeight: 600, fontSize: "clamp(0.9rem, 2vw, 1.1rem)", marginBottom: 2 }}>BY DESIGN</div>
         </div>
       </div>
     </section>
