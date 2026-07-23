@@ -4,6 +4,27 @@ import "../App.css";
 
 const projects = [
   {
+  year: "2026",
+  title: "Marsbold CRM — Client Management with Security Monitoring",
+  description:
+    "A full-stack admin dashboard for managing clients, featuring device-fingerprint-based login monitoring that flags brute-force attempts and unrecognized-device logins in real time.",
+  technologies: [
+    "Next.js",
+    "TypeScript",
+    "Prisma",
+    "PostgreSQL (Neon)",
+    "NextAuth.js",
+    "shadcn/ui",
+    "FingerprintJS",
+    "Tailwind CSS",
+    "Vercel",
+  ],
+  image: "marsbold-crm.png",
+  liveUrl: "https://threat-watch-gilt.vercel.app/",
+  codeUrl: "https://github.com/themarsfactor/Marsbold-ThreatWatch",
+  category: ["Full Stack Development", "Security", "TypeScript"],
+},
+  {
     year: "2024",
     title: "React Shipping & Logistics Platform",
     description:
